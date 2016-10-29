@@ -1,0 +1,561 @@
+/* Name: Ahmed Eissa
+   Date: 11/27/15
+   File: tabs.c, tabs.out
+   Email: aeissa2@umbc.edu 
+   Class: CMSC104-1096
+   Professor: Sharyn Kurland 
+   Description: This project will create a tab management system for a restaurant/bar, allowing servers to add food to up to 1o open tabs, record payments to the tabs, print the current tabs, and close out and   shut down the system. */ 
+
+
+
+
+#include <stdio.h>
+
+
+/* These constants represent the maximum amount of tables/tabs in the restaurant, as well as the food prices of the fixed menu. */ 
+#define TABLES 10
+#define WINGS 10.50
+#define SLIDERS 5.00
+#define CHILI 2.50
+#define NACHOS 6.50
+#define PIZZA 12.00
+
+
+void printMenu(float tabs[TABLES]);
+void choiceOne(float tabs[TABLES], int action);
+void choiceTwo(float tabs[TABLES], int action); 
+void choiceFour(float tabs[TABLES]);
+
+/* printMenu: prints a menu of open tabs in the restaurant. 
+
+   inputs: the array of 10 tabs
+
+   outputs: nothing is returned    */
+void printMenu(float tabs[TABLES]){
+
+  /* Prints all ten tabs to the user*/ 
+  
+  printf("Table Tabs:\n");
+  printf("------------------------------\n");
+  printf("Table #1               $%.2f\n", tabs[0]);
+  printf("Table #2               $%.2f\n", tabs[1]);
+  printf("Table #3               $%.2f\n", tabs[2]);
+  printf("Table #4               $%.2f\n", tabs[3]);
+  printf("Table #5               $%.2f\n", tabs[4]);
+  printf("Table #6               $%.2f\n", tabs[5]);
+  printf("Table #7               $%.2f\n", tabs[6]);
+  printf("Table #8               $%.2f\n", tabs[7]);
+  printf("Table #9               $%.2f\n", tabs[8]);
+  printf("Table #10              $%.2f\n", tabs[9]);
+
+
+}
+
+
+/* choiceOne: allows the user to add food items to 1 of 10 tabs
+   
+   inputs: the array of 10 tabs and 'action' (what function the user wishes to perform)
+
+   outputs: nothing is returned   */ 
+void choiceOne(float tabs[TABLES], int action){
+  
+  char food;
+  int  table;
+
+  // Presents a list of food items to the user 
+  if (action == 1){
+
+  printf("C) Chili           $%.2f\n", CHILI);
+  printf("N) Nachos          $%.2f\n", NACHOS);
+  printf("P) Pizzas          $%.2f\n", PIZZA);
+  printf("S) Sliders         $%.2f\n", SLIDERS);
+  printf("W) Buffalo Wings   $%.2f\n", WINGS);
+  printf("What did the customer order? ");
+  scanf(" %c", &food);
+
+  //error checking to make sure the user chooses from the above list of food items
+  while (food != 'c' && food != 'C' && food != 'n' && food != 'N' && food != 'p' && food != 'P' && food != 's' && food != 'S' && food != 'w' && food != 'W'){
+    printf("Orders have to be one of the following: \n");
+    printf("C) Chili           $%.2f\n", CHILI);
+    printf("N) Nachos          $%.2f\n", NACHOS);
+    printf("P) Pizzas          $%.2f\n", PIZZA);
+    printf("S) Sliders         $%.2f\n", SLIDERS);
+    printf("W) Buffalo Wings   $%.2f\n", WINGS);
+    printf("What did the customer order? ");
+    scanf(" %c", &food);
+  } 
+
+  // Allowing user to add food item to specific tab/table
+  printf("What table's tab are you dealing with? (Tables are numbered 1-10) ");
+  scanf("%d", &table);
+  
+  // error checking to make sure the user selects a valid table
+  while (table < 1 || table > 10){
+    printf("Tables are numbered 1-10. Enter a valid number.\n");
+    printf("What table's tab are you dealing with? (Tables are numbered 1-10) ");
+    scanf("%d", &table);
+  }
+  } 
+
+  // the following statements ensure that the food item is added to the correct table. The same if/else if conditions work sufficiently for tables 1-10  
+  if (table == 1){
+    if (food == 'c' || food =='C'){
+      tabs[0] += CHILI;
+    }
+    else if (food == 'n' || food == 'N'){
+      tabs[0] += NACHOS;
+      
+    }
+    else if (food == 'p' || food == 'P'){
+      tabs[0] += PIZZA;
+    }
+
+    else if (food == 's' || food == 'S'){
+      tabs[0] += SLIDERS;
+    }
+
+    else if (food == 'w' || food == 'W'){
+      tabs[0] += WINGS;
+    }
+  }  
+  
+  else if (table == 2){
+    if (food == 'c' || food == 'C'){
+      tabs[1] += CHILI;
+    }
+    else if (food == 'n' || food == 'N'){
+      tabs[1] += NACHOS;
+    }
+    else if (food == 'p' || food == 'P'){
+      tabs[1] += PIZZA;
+    }
+
+    else if (food == 's' || food == 'S'){
+      tabs[1] += SLIDERS;
+    }
+
+    else if (food == 'w' || food == 'W'){
+      tabs[1] += WINGS;
+    }
+  }
+  else if (table == 3){
+    if (food == 'c' || food == 'C'){
+      tabs[2] += CHILI;
+    }
+    else if (food == 'n' || food == 'N'){
+      tabs[2] += NACHOS;
+    }
+    else if (food == 'p' || food == 'P'){
+      tabs[2] += PIZZA;
+    }
+
+    else if (food == 's' || food == 'S'){
+      tabs[2] += SLIDERS;
+    }
+
+    else if (food == 'w' || food == 'W'){
+      tabs[2] += WINGS;
+    }
+  }
+  else if (table == 4){
+    if (food == 'c' || food == 'C'){
+      tabs[3] += CHILI;
+    }
+    else if (food == 'n' || food == 'N'){
+      tabs[3] += NACHOS;
+    }
+    else if (food == 'p' || food == 'P'){
+      tabs[3] += PIZZA;
+    }
+
+    else if (food == 's' || food == 'S'){
+      tabs[3] += SLIDERS;
+    }
+
+    else if (food == 'w' || food == 'W'){
+      tabs[3] += WINGS;
+    }
+  }
+  else if (table == 5){
+    if (food == 'c' || food == 'C'){
+      tabs[4] += CHILI;
+    }
+    else if (food == 'n' || food == 'N'){
+      tabs[4] += NACHOS;
+    }
+    else if (food == 'p' || food == 'P'){
+      tabs[4] += PIZZA;
+    }
+
+    else if (food == 's' || food == 'S'){
+      tabs[4] += SLIDERS;
+    }
+
+    else if (food == 'w' || food == 'W'){
+      tabs[4] += WINGS;
+    }
+  }
+  else if (table == 6){
+    if (food == 'c' || food == 'C'){
+      tabs[5] += CHILI;
+    }
+    else if (food == 'n' || food == 'N'){
+      tabs[5] += NACHOS;
+    }
+    else if (food == 'p' || food == 'P'){
+      tabs[5] += PIZZA;
+    }
+
+    else if (food == 's' || food == 'S'){
+      tabs[5] += SLIDERS;
+    }
+
+    else if (food == 'w' || food == 'W'){
+      tabs[5] += WINGS;
+    }
+  }
+  else if (table == 7){
+    if (food == 'c' || food == 'C'){
+      tabs[6] += CHILI;
+    }
+    else if (food == 'n' || food == 'N'){
+      tabs[6] += NACHOS;
+    }
+    else if (food == 'p' || food == 'P'){
+      tabs[6] += PIZZA; 
+    }
+
+    else if (food == 's' || food == 'S'){
+      tabs[6] += SLIDERS;
+    }
+
+    else if (food == 'w' || food == 'W'){
+      tabs[6] += WINGS;
+    }
+  }
+  else if (table == 8){
+    if (food == 'c' || food == 'C'){
+      tabs[7] += CHILI;
+    }
+    else if (food == 'n' || food == 'N'){
+      tabs[7] += NACHOS;
+    }
+    else if (food == 'p' || food == 'P'){
+      tabs[7] += PIZZA;
+    }
+
+    else if (food == 's' || food == 'S'){
+      tabs[7] += SLIDERS;
+    }
+
+    else if (food == 'w' || food == 'W'){
+      tabs[7] += WINGS;
+    }
+  }
+  else if (table == 9){
+    if (food == 'c' || food == 'C'){
+      tabs[8] += CHILI;
+    }
+    else if (food == 'n' || food == 'N'){
+      tabs[8] += NACHOS;
+    }
+    else if (food == 'p' || food == 'P'){
+      tabs[8] += PIZZA;
+    }
+
+    else if (food == 's' || food == 'S'){
+      tabs[8] += SLIDERS;
+    }
+
+    else if (food == 'w' || food == 'W'){
+      tabs[8] += WINGS;
+    }
+  }
+  else if (table == 10){
+    if (food == 'c' || food == 'C'){
+      tabs[9] += CHILI;
+    }
+    else if (food == 'n' || food == 'N'){
+      tabs[9] += NACHOS;
+    }
+    else if (food == 'p' || food == 'P'){
+      tabs[9] += PIZZA;
+    }
+
+    else if (food == 's' || food == 'S'){
+      tabs[9] += SLIDERS;
+    }
+
+    else if (food == 'w' || food == 'W'){
+      tabs[9] += WINGS;
+    }
+  }
+}
+
+
+
+/* choiceTwo: allows the server to add a payment to one of ten tabs, which reduced the total of that specific tab
+   
+   inputs: tabs (array of 10 open tabs), action (the operation the user wishes to perform with the tab management system) 
+
+   outputs: nothing is returned. */ 
+void choiceTwo (float tabs[TABLES], int action){
+  // initializing varibales 
+  int table;
+  float payment;
+
+
+  printf("What table's tab are you dealing with? (Tables are numbered 1-10) ");
+  scanf("%d", &table);
+
+  // error checking to ensure a valid tab is chosen 
+  while (table < 1 || table > 10){
+    printf("Tables are numbered 1-10. Enter a valid number: ");
+    scanf("%d", &table);
+  }
+
+  printf("Enter their payment amount: ");
+  scanf("%f", &payment);
+
+
+  // the following if/else if statements/conditions ensure that the user does not enter in a payment that is greater than any existing tab. If they do, they are re-prompted for another value
+  if (table == 1){
+    while(payment > tabs[0]){
+      printf("You entered %.2f, but their tab is only %.2f!\n", payment, tabs[0]);
+     
+      
+      printf("Enter their payment amount: ");
+      scanf("%f", &payment);
+    }
+  }
+
+  else if (table == 2){
+    
+    while(payment > tabs[1]){
+    printf("You entered %.2f, but their tab is only %.2f!\n", payment, tabs[1]);
+
+
+    printf("Enter their payment amount: ");
+    scanf("%f", &payment);
+  } 
+  } 
+   
+  else if (table == 3){
+    while(payment > tabs[2]){
+    printf("You entered %.2f, but their tab is only %.2f!\n", payment, tabs[2]);
+
+
+    printf("Enter their payment amount: ");
+    scanf("%f", &payment);
+  }
+
+  }
+
+  else if (table == 4){
+
+    while(payment > tabs[3]){
+    printf("You entered %.2f, but their tab is only %.2f!\n", payment, tabs[3]);
+
+
+    printf("Enter their payment amount: ");
+    scanf("%f", &payment);
+  }
+
+  }
+
+  else if (table == 5){
+
+    while(payment > tabs[4]){
+    printf("You entered %.2f, but their tab is only %.2f!\n", payment, tabs[4]);
+
+
+    printf("Enter their payment amount: ");
+    scanf("%f", &payment);
+  }
+
+  }
+
+  else if (table == 6){
+
+    while(payment > tabs[5]){
+    printf("You entered %.2f, but their tab is only %.2f!\n", payment, tabs[5]);
+
+
+    printf("Enter their payment amount: ");
+    scanf("%f", &payment);
+  }
+  }
+
+  else if (table == 7){
+
+    while(payment > tabs[6]){
+    printf("You entered %.2f, but their tab is only %.2f!\n", payment, tabs[6]);
+
+
+    printf("Enter their payment amount: ");
+    scanf("%f", &payment);
+  }
+  }
+
+  else if (table == 8){
+
+    while(payment > tabs[7]){
+    printf("You entered %.2f, but their tab is only %.2f!\n", payment, tabs[7]);
+
+
+    printf("Enter their payment amount: ");
+    scanf("%f", &payment);
+  }
+  }
+
+  else if (table == 9){
+
+    while(payment > tabs[8]){
+    printf("You entered %.2f, but their tab is only %.2f!\n", payment, tabs[8]);
+
+
+    printf("Enter their payment amount: ");
+    scanf("%f", &payment);
+  }
+  }
+
+
+  else if (table == 10){
+
+    while(payment > tabs[9]){
+    printf("You entered %.2f, but their tab is only %.2f!\n", payment, tabs[9]);
+
+
+    printf("Enter their payment amount: ");
+    scanf("%f", &payment);
+  }
+  }
+
+
+  // subtracting a valid payment that is <= a current open tab
+  switch(table){
+  
+  case 1:
+    
+   tabs[0] = tabs[0] - payment;
+    break;
+
+  case 2:
+    tabs[1] = tabs[1] - payment;
+    break;
+
+  case 3:
+    tabs[2] = tabs[2] - payment;
+    break;
+
+  case 4:
+    tabs[3] = tabs[3] - payment;
+    break;
+
+  case 5:
+    tabs[4] = tabs[4] - payment;
+    break;
+
+  case 6:
+    tabs[5] = tabs[5] - payment;
+    break;
+
+  case 7:
+    tabs[6] = tabs[6] - payment;
+    break;
+
+  case 8:
+    tabs[7] = tabs[7] - payment;
+    break;
+
+  case 9:
+    tabs[8] = tabs[8] - payment;
+    break;
+
+  case 10:
+    tabs[9] = tabs[9] - payment;
+    break;
+    
+  }
+
+}
+
+
+/* choiceFour: sets all open tabs to $0.00 and then shuts down and closes 
+
+   inputs: tabs (array of 10 open tabs)
+
+   outputs: nothing is returned  */ 
+void choiceFour(float tabs[TABLES]){
+  
+  // initializing variables
+  int i;
+  
+  // setting all elements in the array = 0.00, which is effectively "closing out all tabs"
+  for (i = 0; i < 10; i++){
+    tabs[i] = 0;
+  }
+
+  // prints the list of tabs, which are now all set to 0.00
+  printMenu(tabs);
+
+}
+
+
+int main(){
+  
+  // initializing variables: which are the main array of the program and the operation the user chooses to perform within the tab management system. 
+  float tabs[TABLES] = {0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00};
+  int action;
+
+  // the user will continuously be prompted to select an operationt to perform with the tab management system until they choose option 4) 
+  do{
+
+    // displays all open tabs before and after each operation performed  
+  printMenu(tabs);
+  
+  printf("1) Add Order to Table's Tab.\n");
+  printf("2) Add Payment to Table's Tab.\n");
+  printf("3) Print Out All Tab Values.\n");
+  printf("4) Close Out All Tables and Shut Down.\n");
+  printf("\n");
+
+  printf("What is your choice? ");
+  scanf("%d", &action);
+
+
+  // call function to allow user to add food items to tabs 
+  if (action == 1){
+    choiceOne(tabs, action);
+
+  }
+
+  // call function to allow user to add payments to tabs
+  else if (action == 2){
+    choiceTwo(tabs, action);
+  }
+
+  // call function to print list of open tabs to user
+  else if (action == 3){
+    printMenu(tabs);
+  }
+
+  // call function to close all open tabs and shut down/end program
+  else if (action == 4){
+    printf("Closing...\n");
+    printf("After closing...\n");
+    printf("\n");
+
+    choiceFour(tabs);
+    
+    printf("Shutting down...Goodbye!\n");
+  }
+
+
+  // user will be repeatedly prompted with operations to perform within the tab management system until they select option 4), to close tabs and shut down
+}while(action != 4);
+
+    
+
+  return 0;
+}

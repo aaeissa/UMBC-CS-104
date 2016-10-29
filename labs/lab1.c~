@@ -1,0 +1,22 @@
+/*This program will sum the user's input until the value -999 is entered
+ */
+
+#include <stdio.h>
+
+int main(){
+
+  int sum = 0;
+  int value;
+
+  printf("Enter a number to add to the sum or enter -999 to quit: ");
+  scanf("%d", &value);
+  while (value != -999){
+    sum = sum + value;
+    printf("Enter a number to add to the sum or enter -999 to quit: ");
+    scanf("%d", &value);
+  }
+  
+  printf("The sum produced: %d \n", sum);
+
+  return 0;
+}

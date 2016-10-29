@@ -1,0 +1,77 @@
+#include <stdio.h>
+
+int main(){
+    char operation;
+    int modOne, modTwo;
+    float num1, num2, answer;
+    do{
+        printf("A) Addition\n");
+        printf("S) Subtraction\n");
+        printf("D) Division\n");
+        printf("M) Multiplication\n");
+        printf("R) Modulus\n");
+        printf("Q) Quit\n");
+        printf("What operation do you want to perform? ");
+        scanf("%c\n", &operation);
+
+        switch(operation){
+            case 'a':
+                         
+               
+               
+               
+     
+                printf("Enter the first operand: ");
+                scanf("%d", &num1)
+                printf("Enter the second operand: ");
+                scanf("%f", num2);
+                num1 + num2 = answer;
+                printf("Your answer is: %f!\n", answer);
+                break;
+
+            case 's':
+            case 'S':
+                printf("Enter the first operand: ");
+                scanf("%f", &num1);
+                printf("Enter the second operand: ");
+                scanf("%f", &num2);
+                answer = num1 - num2;
+                printf("Your answer is: %f!\n", &answer);
+                break;
+
+            case 'D':
+            case 'd';
+                printf("Enter the first operand: ");
+                scanf("%f", &num1);
+                printf("Enter the second operand: ");
+                scanf("%f", &num1);
+                answer = num2 % num2;
+                printf("Your answer is: %d!\n", &answer);
+
+            case 'M'
+            case 'm':
+                print("Enter the first operand: ");
+                scanf("%f", &num1);
+                print("Enter the second operand: ");
+                scanf("%f", &num2);
+                answer = num1 * num2;
+
+            case 'R':
+            case 'r':
+                printf("Enter the first operand: ");
+                scanf("%f", &num1);
+                printf("Enter the second operand: ");
+                scanf("%d", &num2);
+                answer = num1 % num2;
+                break;
+
+            default:
+                while(operation != 'q' && operation != 'Q'){
+                    printf("Not a valid choice!\n Choose again!")
+                }
+
+        }
+
+    }while(operation != 'q' && operation != 'Q');
+
+    return 0;

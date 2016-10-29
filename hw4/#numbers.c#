@@ -1,0 +1,272 @@
+/*Name: Ahmed Eissa 
+  Filename: numbers.out
+  Date: October 21, 2015
+  Course/Section: CMSC104-1093
+  Email: aeissa2@umbc.edu
+  Description: This program will prompt a user for a range of numbers and then give the user the option to perform several mathematical operations  - prime numbers, perfect numbers, square numbers, and triangular numbers. 
+*/
+
+
+
+#include <stdio.h>
+
+int main(){
+
+  /* initializing variables */
+  char operation;
+  int range1, range2, i, j, sum, counter;
+
+  
+  do{ 
+    /* print menu to the user and get user's choice*/
+    printf("A) Find all the prime numbers in a range.\n");
+    printf("B) Find all the square numbers in a range.\n");
+    printf("C) Find all the triangular numbers in a range.\n");
+    printf("D) Determine if the numbers in a range are perfect, abundant or deficient.\n");
+    printf("Q) Quit.\n");
+
+    printf("What is your choice? ");
+    scanf(" %c", &operation);
+    
+    /* begin switch statement based on user defined choice */
+    switch (operation){
+ 
+    /* if user chooses A (prime numbers) get starting number of range */
+    case 'a':
+    case 'A':
+
+      }
+      /* get ending number of range */
+      printf("What is the ending number of your desired range? ");
+      scanf("%d", &range2);
+
+      /* range cannot be greater than 100000*/
+      while (range2 > 100000){
+	printf("The ending number of your desired range must not be greater than 100,000.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range2);
+      }
+
+      /* range 2 must be less than range 1 */
+      while (range2 < range1){
+	printf("The end of your range cannot be greater than the beginning of your range.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range2);
+	printf("What is the starting number of your desired range? ");
+	scanf(" %d", &range1);
+
+	/* values within range must be positive */
+	while (range1 < 0){
+	  printf("The beginning of your desired range must be a positive integer.\n");
+	  printf("Please enter a new number: ");
+	  scanf("%d", &range1);
+	}
+	/* get ending number of range */
+        printf("What is the ending number of your desired range? ");
+        scanf("%d", &range2);
+
+        /* range cannot be greater than 100000*/
+	while (range2 > 100000){
+	  printf("The ending number of your desired range must not be greater than 100,000.\n");
+	  printf("Please enter a new number: ");
+	  scanf("%d", &range2);
+	}
+
+	/* range 2 must be less than range 1 */
+	while (range2 < range1){
+	  printf("The end of your range cannot be greater than the beginning of your range.\n");
+	  printf("Please enter a new number: ");
+	 
+      scanf(" %d", &range1);
+     
+      /* values within range must be positive */
+      while (range1 < 0){
+	printf("The beginning of your desired range must be a positive integer.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range1);
+      }
+      /* get ending number of range */
+        printf("What is the ending number of your desired range? ");
+	scanf("%d", &range2);
+
+	/* range cannot be greater than 100000*/
+     while (range2 > 100000){
+       printf("The ending number of your desired range must not be greater than 100,000.\n");
+       printf("Please enter a new number: ");
+       scanf("%d", &range2);
+     }
+
+     /* range 2 must be less than range 1 */
+     while (range2 < range1){
+       printf("The end of your range cannot be greater than the beginning of your range.\n");
+       printf("Please enter a new number: ");
+       scanf("%d", &range2);
+     }
+
+     /* iterate through the user defined range */
+      for (i = range1 + 1; i < range2; i++){
+	counter = 0;
+	/* numbers only divisors are itself and one */
+	for (j = 2; j <= i/2; j++){
+	  if (i % j == 0){
+	    counter ++;
+	  }
+        }
+	if (counter == 0){
+	  printf("%d is a prime number.\n", i);
+	}
+      }
+      break;
+
+
+    case 'b':
+    case 'B':
+      /* acquire user defined range */
+      printf("What is the starting number of your desired range? ");
+      scanf(" %d", &range1);
+      
+      /* range cant be negative */
+      while (range1 < 0){
+	printf("The beginning of your desired range must be a positive integer.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range1);
+      }
+      
+      /* get end value of range */ 
+        printf("What is the ending number of your desired range? ");
+	scanf("%d", &range2);
+
+	/* range cant be greater than 100,000 */ 
+      while (range2 > 100000){
+	printf("The ending number of your desired range must not be greater than 100,000.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range2);
+      }
+
+      /* range 2 must be less than range 1 */
+      while (range2 < range1){
+	printf("The end of your range cannot be greater than the beginning of your range.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range2);
+      }
+
+      /* iterate through user defined range */
+      for(i = range1; i <= range2; i++){
+	/* number times itself is a square number */
+	for (j = 1; j < i; j++){
+	  if (j * j == i){
+	    printf("%d is a square number.\n", i);
+	}
+       }
+      }
+      break;
+
+    case 'c':
+    case 'C':
+      /* get starting number of desired range */ 
+      printf("What is the starting number of your desired range? ");
+      scanf(" %d", &range1);
+
+      /* range cant be negative */
+      while (range1 < 0){
+	printf("The beginning of your desired range must be a positive integer.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range1);
+      }
+
+      /* get ending number of range */
+       printf("What is the ending number of your desired range? ");
+       scanf("%d", &range2);
+
+       /* range cant be greater than 100,000 */
+      while (range2 > 100000){
+        printf("The ending number of your desired range must not be greater than 100,000.\n");
+        printf("Please enter a new number: ");
+        scanf("%d", &range2);
+      }
+      
+      /* range 2 must be less than range 1 */
+      while (range2 < range1){
+	printf("The end of your range cannot be greater than the beginning of your range.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range2);
+      }
+
+      /* iterate through user defined range */
+      for (i = range1; i <= range2; i++){
+	for (j = 1; j <= i; j++){
+	  /* sum up consecutive integers */
+	  if (i == (j*(j+1)/2)){
+	    printf("%d is a triangular number.\n", i);
+	  }
+     	}
+      }
+      break;
+
+    case 'd':
+    case 'D':  
+      /* get user range */ 
+      printf("What is the starting number of your desired range? ");
+      scanf(" %d", &range1);
+
+      /* range cannot be negative */ 
+      while (range1 < 0){
+	printf("The beginning of your desired range must be a positive integer.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range1);
+      }
+
+      /* get ending number */ 
+        printf("What is the ending number of your desired range? ");
+        scanf("%d", &range2);
+
+	/* range 2 cannot be greater than 100,000 */
+      while (range2 > 100000){
+	printf("The ending number of your desired range must not be greater than 100,000.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range2);
+      }
+      /* range 2 must be less than range 1 */ 
+      while (range2 < range1){
+	printf("The end of your range cannot be greater than the beginning of your range.\n");
+	printf("Please enter a new number: ");
+	scanf("%d", &range2);
+      }
+      
+      /* iterate through user defined range */ 
+      for (i = range1; i <= range2; i++){
+	sum = 0;
+	/*Gives the sum of the divisors*/
+	for (j = 1; j < i; j++){
+	  if (i % j  == 0){
+	    sum = sum + j;    
+	  }
+	}
+	if(sum == i){
+	  printf("%d is a Perfect number.\n", i);
+	} else if(sum > i){
+	  printf("%d is an Abundant number.\n", i);
+	} else{
+	  printf("%d is a Deficient number.\n", i);
+	}
+      }
+      break;
+      
+      /* case to quit out of the program */ 
+    case 'q':
+    case 'Q':
+      printf("Thank you for using the program!\n");
+      break;
+   
+      /* if none of the other cases are met, display invalid choice to user */ 
+    default: 
+      printf("Error: invalid choice.\nPlease choose option A, B, C, D, or Q.\n");
+      scanf("%c", &operation);
+      break; 
+  
+    }
+ 
+  } while(operation != 'q' && operation != 'Q'); 
+
+  return 0;
+}

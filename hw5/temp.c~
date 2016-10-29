@@ -1,0 +1,112 @@
+
+/* Name: Ahmed Eissa
+   Date: 11/7/15
+   email: aeissa2@umbc.edu
+   class: CMSC104-1093
+   Description: This program will take up to 10 temperature readings from the user and find the minimum, maximum and average temperature. */
+
+#include <stdio.h>
+
+#define AMNT 10
+#define QUIT 301
+
+int checkArray(int input);
+int min(int tempList[], int counter);
+int max(int tempList[], int counter);
+float avg(int tempList[], int counter);
+
+int checkArray(int input){
+
+  while (((input < -200) || (input > 300)) && (input != 301)){
+      printf("Invalid value.\nEnter a temperature between -200 and 300.\nEnter 301 to stop entering values. ");
+      scanf("%d", &input);
+     }
+  
+  if (input == QUIT){
+    return QUIT;
+    }
+
+  return input;
+}
+
+int min(int tempList[], int counter){
+  int i, smallest;
+
+  smallest = tempList[0];
+
+  for (i = 0; i < counter; i++){
+    if (tempList[i] < smallest){
+      smallest = tempList[i];
+    }
+  } 
+  return smallest;
+}
+
+int max(int someTemps[], int counter){
+  int i, biggest;
+  int position = 1;
+
+  biggest = someTemps[0];
+  
+  for (i = 1; i < counter; i++){
+    if (someTemps[i] > biggest){
+      biggest = someTemps[i];
+      position = i + 1;
+    }
+  }
+
+  return biggest;
+}
+
+float avg(int tempList[], int counter){
+  float sum = 0;
+  int i;
+  float average = 0;
+  
+  for (i = 0; i < counter; i++){
+    sum = sum + tempList[i];
+  }   
+  
+  average = sum / counter;
+
+  return average;
+}
+
+
+
+int main(){
+
+  int i, small, big, input;
+  int counter = 0;
+  int fillCount = 10;
+  int tempList[AMNT];
+  float average;
+    
+
+  /* Ask the user for a temperature and put it directly into the array of temperatures. */
+  for(i = 0; i < fillCount; i++){
+    printf("Enter a temperature between -200 and 300.\nEnter 301 to stop entering values. ");
+    scanf("%d", &input);
+
+    input = checkArray(input);
+    
+    if (input == QUIT){
+      fillCount = 0;
+    }
+
+    else{
+      tempList[i] = input;
+      counter++;
+    }
+  }
+
+  average = avg(tempList, counter);
+  small = min(tempList, counter);
+  big = max(tempList, counter);
+
+  printf("The average temperature was %.2f degrees.\n", average);
+  printf("The maximum temperature recorded was %d degrees.\n", big);
+  printf("The minimum temperature recorded was %d degrees.\n", small);
+
+ return 0;
+}
